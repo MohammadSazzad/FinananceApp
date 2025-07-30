@@ -5,42 +5,151 @@
         <h1>My Expenses</h1>
         <a asp-action="Create" class="btn btn-success">Add New Expense</a>
     </div>
-
-    @if (Model.Any())
-    {
-        <table class="table table-bordered table-striped">
-            <thead class="table-dark">
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
                 <tr>
-                    <th>ID</th>
-                    <th>Description</th>
-                    <th>Amount</th>
-                    <th>Category</th>
-                    <th>Date</th>
+                    <td>@item.Description</td>
+                    <td>$@item.Amount.ToString("F2")</td>
+                    <td>@item.Category</td>
+                    <td>@item.Date.ToShortDateString()</td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@item.Id</td>
-                        <td>@item.Description</td>
-                        <td>$@item.Amount.ToString("F2")</td>
-                        <td>@item.Category</td>
-                        <td>@item.Date.ToShortDateString()</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        
-        <div class="mt-3">
-            <strong>Total: $@Model.Sum(e => e.Amount).ToString("F2")</strong>
+            }
+        </tbody>
+    </table>
+    
+    <div class="mt-3">
+        <strong>Total: $@Model.Sum(e => e.Amount).ToString("F2")</strong>
+    </div>
+    <h1>Expenses Overview</h1>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Expenses by Category</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="myChart" width="400" height="400"></canvas>
+                </div>
+            </div>
         </div>
-    }
-    else
-    {
-        <div class="alert alert-info">
-            <h4>No expenses found</h4>
-            <p>You haven't added any expenses yet. <a asp-action="Create" class="btn btn-sm btn-primary">Add your first expense</a> or <a asp-action="SeedData" class="btn btn-sm btn-secondary">load sample data</a>.</p>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Category Summary</h5>
+                </div>
+                <div class="card-body">
+                    <div id="categorySummary">
+                        <!-- Category summary will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
         </div>
-    }
+    </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  fetch('/Expenses/GetChart')
+    .then(response => response.json())
+    .then(data => {
+        const labels = data.map(item => item.category);
+        const amounts = data.map(item => item.totalAmount);
+
+        // Define an array of colors for different segments
+        const backgroundColors = [
+            'rgba(255, 99, 132, 0.8)',   // Red
+            'rgba(54, 162, 235, 0.8)',   // Blue
+            'rgba(255, 205, 86, 0.8)',   // Yellow
+            'rgba(75, 192, 192, 0.8)',   // Teal
+            'rgba(153, 102, 255, 0.8)',  // Purple
+            'rgba(255, 159, 64, 0.8)',   // Orange
+            'rgba(199, 199, 199, 0.8)',  // Grey
+            'rgba(83, 102, 255, 0.8)',   // Indigo
+            'rgba(255, 99, 255, 0.8)',   // Pink
+            'rgba(99, 255, 132, 0.8)'    // Light Green
+        ];
+
+        const borderColors = [
+            'rgba(255, 99, 132, 1)',     // Red
+            'rgba(54, 162, 235, 1)',     // Blue
+            'rgba(255, 205, 86, 1)',     // Yellow
+            'rgba(75, 192, 192, 1)',     // Teal
+            'rgba(153, 102, 255, 1)',    // Purple
+            'rgba(255, 159, 64, 1)',     // Orange
+            'rgba(199, 199, 199, 1)',    // Grey
+            'rgba(83, 102, 255, 1)',     // Indigo
+            'rgba(255, 99, 255, 1)',     // Pink
+            'rgba(99, 255, 132, 1)'      // Light Green
+        ];
+
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: amounts,
+                    backgroundColor: backgroundColors.slice(0, labels.length),
+                    borderColor: borderColors.slice(0, labels.length),
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                const label = tooltipItem.label || '';
+                                const value = tooltipItem.raw || 0;
+                                const total = amounts.reduce((a, b) => a + b, 0);
+                                const percentage = ((value / total) * 100).toFixed(1);
+                                return `${label}: $${value.toFixed(2)} (${percentage}%)`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Populate category summary
+        const summaryContainer = document.getElementById('categorySummary');
+        const total = amounts.reduce((a, b) => a + b, 0);
+        
+        let summaryHtml = '';
+        for (let i = 0; i < labels.length; i++) {
+            const percentage = ((amounts[i] / total) * 100).toFixed(1);
+            const color = backgroundColors[i];
+            summaryHtml += `
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <div class="d-flex align-items-center">
+                        <div style="width: 20px; height: 20px; background-color: ${color}; margin-right: 10px; border-radius: 3px;"></div>
+                        <span>${labels[i]}</span>
+                    </div>
+                    <div>
+                        <strong>$${amounts[i].toFixed(2)}</strong>
+                        <small class="text-muted">(${percentage}%)</small>
+                    </div>
+                </div>
+            `;
+        }
+        summaryContainer.innerHTML = summaryHtml;
+    });
+</script>
+

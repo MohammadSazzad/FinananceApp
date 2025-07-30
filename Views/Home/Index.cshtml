@@ -1,8 +1,187 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Finance App - Manage Your Expenses";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!-- Hero Section -->
+<div class="hero-section bg-gradient-primary text-white py-5 mb-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-3 fw-bold mb-4">Take Control of Your <span class="text-warning">Finances</span></h1>
+                <p class="lead mb-4">Track your expenses, analyze spending patterns, and make informed financial decisions with our powerful expense tracking tool.</p>
+                <div class="d-flex gap-3">
+                    <a asp-controller="Expenses" asp-action="Index" class="btn btn-warning btn-lg px-4 py-2">
+                        <i class="fas fa-chart-pie me-2"></i>View Dashboard
+                    </a>
+                    <a asp-controller="Expenses" asp-action="Create" class="btn btn-outline-light btn-lg px-4 py-2">
+                        <i class="fas fa-plus me-2"></i>Add Expense
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="hero-image">
+                    <i class="fas fa-wallet fa-10x text-warning opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<!-- Features Section -->
+<div class="container mb-5">
+    <div class="row text-center mb-5">
+        <div class="col-12">
+            <h2 class="display-5 fw-bold text-dark mb-3">Why Choose Our Finance App?</h2>
+            <p class="lead text-muted">Powerful features to help you manage your money better</p>
+        </div>
+    </div>
+    
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="feature-card card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-chart-line fa-3x text-primary"></i>
+                    </div>
+                    <h5 class="card-title fw-bold">Smart Analytics</h5>
+                    <p class="card-text text-muted">Visualize your spending with interactive charts and detailed category breakdowns.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="feature-card card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-tags fa-3x text-success"></i>
+                    </div>
+                    <h5 class="card-title fw-bold">Category Management</h5>
+                    <p class="card-text text-muted">Organize expenses by categories like Food, Transportation, Entertainment, and more.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="feature-card card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-clock fa-3x text-info"></i>
+                    </div>
+                    <h5 class="card-title fw-bold">Real-time Tracking</h5>
+                    <p class="card-text text-muted">Add expenses instantly and see your financial data update in real-time.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Stats Section -->
+<div class="bg-light py-5 mb-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 mb-4">
+                <div class="stat-item">
+                    <i class="fas fa-users fa-2x text-primary mb-2"></i>
+                    <h3 class="fw-bold text-dark">10K+</h3>
+                    <p class="text-muted">Happy Users</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-item">
+                    <i class="fas fa-receipt fa-2x text-success mb-2"></i>
+                    <h3 class="fw-bold text-dark">1M+</h3>
+                    <p class="text-muted">Expenses Tracked</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-item">
+                    <i class="fas fa-dollar-sign fa-2x text-warning mb-2"></i>
+                    <h3 class="fw-bold text-dark">$5M+</h3>
+                    <p class="text-muted">Money Managed</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-item">
+                    <i class="fas fa-star fa-2x text-danger mb-2"></i>
+                    <h3 class="fw-bold text-dark">4.9/5</h3>
+                    <p class="text-muted">User Rating</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action Section -->
+<div class="cta-section py-5">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="display-5 fw-bold text-dark mb-3">Ready to Start Your Financial Journey?</h2>
+                <p class="lead text-muted mb-4">Join thousands of users who have already taken control of their finances. Start tracking your expenses today!</p>
+                <a asp-controller="Expenses" asp-action="Create" class="btn btn-primary btn-lg px-5 py-3">
+                    <i class="fas fa-rocket me-2"></i>Get Started Now
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Styles -->
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+    }
+    
+    .feature-card {
+        transition: all 0.3s ease;
+        border-radius: 15px;
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
+    }
+    
+    .feature-icon i {
+        transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover .feature-icon i {
+        transform: scale(1.1);
+    }
+    
+    .stat-item {
+        transition: all 0.3s ease;
+    }
+    
+    .stat-item:hover {
+        transform: translateY(-5px);
+    }
+    
+    .cta-section {
+        background: linear-gradient(45deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+    
+    .btn {
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .hero-image {
+        transform: translateY(0px);
+        transition: all 0.3s ease;
+    }
+    
+    .hero-image:hover {
+        transform: translateY(-10px);
+    }
+</style>
