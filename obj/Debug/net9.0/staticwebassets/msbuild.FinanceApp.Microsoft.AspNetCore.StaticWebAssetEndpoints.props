@@ -3,14 +3,14 @@
     <StaticWebAssetEndpoint Include="_content/FinanceApp/css/site.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-t5CapF4i3tAM3TFbfb1zSAm7CC1d8mN0bdQ6YldTRcQ="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"10099"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022t5CapF4i3tAM3TFbfb1zSAm7CC1d8mN0bdQ6YldTRcQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 12:53:11 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Sb\u002BkSEfwGoK8EW05qpGTLIYMEuYoZRSJlbLgqYCuk1Q="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"10072"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Sb\u002BkSEfwGoK8EW05qpGTLIYMEuYoZRSJlbLgqYCuk1Q=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 12:57:44 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/FinanceApp/css/site.rblnlca1n5.css">
+    <StaticWebAssetEndpoint Include="_content/FinanceApp/css/site.vmooq1r49b.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"rblnlca1n5"},{"Name":"integrity","Value":"sha256-t5CapF4i3tAM3TFbfb1zSAm7CC1d8mN0bdQ6YldTRcQ="},{"Name":"label","Value":"_content/FinanceApp/css/site.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"10099"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022t5CapF4i3tAM3TFbfb1zSAm7CC1d8mN0bdQ6YldTRcQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 12:53:11 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"vmooq1r49b"},{"Name":"integrity","Value":"sha256-Sb\u002BkSEfwGoK8EW05qpGTLIYMEuYoZRSJlbLgqYCuk1Q="},{"Name":"label","Value":"_content/FinanceApp/css/site.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"10072"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Sb\u002BkSEfwGoK8EW05qpGTLIYMEuYoZRSJlbLgqYCuk1Q=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 12:57:44 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/FinanceApp/favicon.61n19gt1b8.ico">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</AssetFile>

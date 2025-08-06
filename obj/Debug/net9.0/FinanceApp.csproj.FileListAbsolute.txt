@@ -240,4 +240,5 @@
 /home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/bin/Debug/net9.0/Microsoft.OpenApi.dll
 /home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/bin/Debug/net9.0/Scalar.AspNetCore.dll
 /home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/FinanceApp.MvcApplicationPartsAssemblyInfo.cs
-/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/compressed/jsojxaleb6-rblnlca1n5.gz
+/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/compressed/jsojxaleb6-vmooq1r49b.gz
+/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/bin/Debug/net9.0/appsettings.Production.json

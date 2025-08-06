@@ -9,7 +9,7 @@ namespace FinanceApp.Data.Service
         Task<User?> GetUserById(int id);
         Task RegisterUser(User user, string password);
         Task<LoginResponse> LoginUser(UserLoginDTO loginDTO);
-        Task<LoginResponse> UpdateUser(User user);
+        Task UpdateUser(User user);
         Task ChangePassword(int userId, string currentPassword, string newPassword);
         Task DeleteUser(int id);
     }
