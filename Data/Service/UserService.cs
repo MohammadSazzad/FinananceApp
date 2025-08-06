@@ -104,7 +104,7 @@ namespace FinanceApp.Data.Service
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddDays(7),
+                Expires = DateTime.UtcNow.AddDays(30),
                 SigningCredentials = credentials,
                 Issuer = _config["AppSettings:Issuer"],
                 Audience = _config["AppSettings:Audience"]
