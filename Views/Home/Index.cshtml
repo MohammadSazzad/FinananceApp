@@ -2,21 +2,38 @@
     ViewData["Title"] = "Finance App - Manage Your Expenses";
 }
 
+@if (ViewBag.IsLoggedIn == true)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fas fa-check-circle me-2"></i>
+        <strong>Welcome back, @ViewBag.CurrentUsername!</strong> You are successfully logged in.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
 <!-- Hero Section -->
 <div class="hero-section bg-gradient-primary text-white py-5 mb-5">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
-                <h1 class="display-3 fw-bold mb-4">Take Control of Your <span class="text-warning">Finances</span></h1>
-                <p class="lead mb-4">Track your expenses, analyze spending patterns, and make informed financial decisions with our powerful expense tracking tool.</p>
-                <div class="d-flex gap-3">
-                    <a asp-controller="Expenses" asp-action="Index" class="btn btn-warning btn-lg px-4 py-2">
-                        <i class="fas fa-chart-pie me-2"></i>View Dashboard
-                    </a>
-                    <a asp-controller="Expenses" asp-action="Create" class="btn btn-outline-light btn-lg px-4 py-2">
-                        <i class="fas fa-plus me-2"></i>Add Expense
-                    </a>
-                </div>
+                @if (ViewBag.IsLoggedIn == true)
+                {
+                    <h1 class="display-3 fw-bold mb-4">Welcome Back, <span class="text-warning">@ViewBag.CurrentUsername!</span></h1>
+                    <p class="lead mb-4">Ready to continue managing your finances? Check your latest expenses or add new ones to stay on top of your financial goals.</p>
+                    <div class="d-flex gap-3">
+                        <a asp-controller="Expenses" asp-action="Index" class="btn btn-warning btn-lg px-4 py-2">
+                            <i class="fas fa-chart-pie me-2"></i>View Dashboard
+                        </a>
+                        <a asp-controller="Expenses" asp-action="Create" class="btn btn-outline-light btn-lg px-4 py-2">
+                            <i class="fas fa-plus me-2"></i>Add Expense
+                        </a>
+                    </div>
+                }
+                else
+                {
+                    <h1 class="display-3 fw-bold mb-4">Take Control of Your <span class="text-warning">Finances</span></h1>
+                    <p class="lead mb-4">Track your expenses, analyze spending patterns, and make informed financial decisions with our powerful expense tracking tool.</p>
+                }
             </div>
             <div class="col-lg-6 text-center">
                 <div class="hero-image">
@@ -116,11 +133,22 @@
     <div class="container text-center">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <h2 class="display-5 fw-bold text-dark mb-3">Ready to Start Your Financial Journey?</h2>
-                <p class="lead text-muted mb-4">Join thousands of users who have already taken control of their finances. Start tracking your expenses today!</p>
-                <a asp-controller="Expenses" asp-action="Create" class="btn btn-primary btn-lg px-5 py-3">
-                    <i class="fas fa-rocket me-2"></i>Get Started Now
-                </a>
+                @if (ViewBag.IsLoggedIn == true)
+                {
+                    <h2 class="display-5 fw-bold text-dark mb-3">Ready to Take Control of Your Finances?</h2>
+                    <p class="lead text-muted mb-4">You're all set! Start tracking your expenses and monitor your financial progress with our powerful tools.</p>
+                    <a asp-controller="Expenses" asp-action="Create" class="btn btn-primary btn-lg px-5 py-3">
+                        <i class="fas fa-plus me-2"></i>Add Your First Expense
+                    </a>
+                }
+                else
+                {
+                    <h2 class="display-5 fw-bold text-dark mb-3">Ready to Start Your Financial Journey?</h2>
+                    <p class="lead text-muted mb-4">Join thousands of users who have already taken control of their finances. Start tracking your expenses today!</p>
+                    <a asp-controller="Users" asp-action="Create" class="btn btn-primary btn-lg px-5 py-3">
+                        <i class="fas fa-rocket me-2"></i>Get Started Now
+                    </a>
+                }
             </div>
         </div>
     </div>

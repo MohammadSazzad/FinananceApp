@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0WLUxzKmYDh5Uj7yzwyWI7sn8Ge/YlUuftiFLFtJzmw=",
+  "Hash": "VMW0jh7zuhxQVWU1/MAgS+6qB3mmR3D6TT0Qhy8vjJI=",
   "Source": "FinanceApp",
   "BasePath": "_content/FinanceApp",
   "Mode": "Default",
@@ -794,12 +794,12 @@
       "OriginalItemSpec": "/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/wwwroot/lib/jquery/dist/jquery.js"
     },
     {
-      "Identity": "/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/compressed/jsojxaleb6-b9sayid5wm.gz",
+      "Identity": "/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/compressed/jsojxaleb6-rblnlca1n5.gz",
       "SourceId": "FinanceApp",
       "SourceType": "Discovered",
       "ContentRoot": "/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/FinanceApp",
-      "RelativePath": "css/site#[.{fingerprint=b9sayid5wm}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=rblnlca1n5}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -808,8 +808,8 @@
       "RelatedAsset": "/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/wwwroot/css/site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "pi0kzaqg9p",
-      "Integrity": "X7WdvJWe5+793Q+I1aPv6O/n2+XRWJsByQEd8dEKmGs=",
+      "Fingerprint": "yiradawt11",
+      "Integrity": "JoH8Nct/p0vzUh3R12n508h1TQtZoLAsr5kB6JdFYk4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/wwwroot/css/site.css"
@@ -1417,8 +1417,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "b9sayid5wm",
-      "Integrity": "j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=",
+      "Fingerprint": "rblnlca1n5",
+      "Integrity": "t5CapF4i3tAM3TFbfb1zSAm7CC1d8mN0bdQ6YldTRcQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/site.css"
@@ -2728,13 +2728,13 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/site.b9sayid5wm.css",
-      "AssetFile": "/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/compressed/jsojxaleb6-b9sayid5wm.gz",
+      "Route": "css/site.css",
+      "AssetFile": "/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/compressed/jsojxaleb6-rblnlca1n5.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.003134796238"
+          "Quality": "0.000467726848"
         }
       ],
       "ResponseHeaders": [
@@ -2744,19 +2744,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "318"
+          "Value": "2137"
         },
         {
           "Name": "ETag",
-          "Value": "\"X7WdvJWe5+793Q+I1aPv6O/n2+XRWJsByQEd8dEKmGs=\""
+          "Value": "\"JoH8Nct/p0vzUh3R12n508h1TQtZoLAsr5kB6JdFYk4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Jul 2025 14:00:00 GMT"
+          "Value": "Wed, 06 Aug 2025 12:53:11 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -2772,26 +2772,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
+          "Value": "W/\"t5CapF4i3tAM3TFbfb1zSAm7CC1d8mN0bdQ6YldTRcQ=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "b9sayid5wm"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
+          "Value": "sha256-t5CapF4i3tAM3TFbfb1zSAm7CC1d8mN0bdQ6YldTRcQ="
         }
       ]
     },
     {
-      "Route": "css/site.b9sayid5wm.css",
+      "Route": "css/site.css",
       "AssetFile": "/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/wwwroot/css/site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2801,7 +2793,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "667"
+          "Value": "10099"
         },
         {
           "Name": "Content-Type",
@@ -2809,11 +2801,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
+          "Value": "\"t5CapF4i3tAM3TFbfb1zSAm7CC1d8mN0bdQ6YldTRcQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Jul 2025 14:00:00 GMT"
+          "Value": "Wed, 06 Aug 2025 12:53:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-t5CapF4i3tAM3TFbfb1zSAm7CC1d8mN0bdQ6YldTRcQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css.gz",
+      "AssetFile": "/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/compressed/jsojxaleb6-rblnlca1n5.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2137"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"JoH8Nct/p0vzUh3R12n508h1TQtZoLAsr5kB6JdFYk4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 06 Aug 2025 12:53:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-JoH8Nct/p0vzUh3R12n508h1TQtZoLAsr5kB6JdFYk4="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.rblnlca1n5.css",
+      "AssetFile": "/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/compressed/jsojxaleb6-rblnlca1n5.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000467726848"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2137"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"JoH8Nct/p0vzUh3R12n508h1TQtZoLAsr5kB6JdFYk4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 06 Aug 2025 12:53:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"t5CapF4i3tAM3TFbfb1zSAm7CC1d8mN0bdQ6YldTRcQ=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rblnlca1n5"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-t5CapF4i3tAM3TFbfb1zSAm7CC1d8mN0bdQ6YldTRcQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.rblnlca1n5.css",
+      "AssetFile": "/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/wwwroot/css/site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10099"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"t5CapF4i3tAM3TFbfb1zSAm7CC1d8mN0bdQ6YldTRcQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 06 Aug 2025 12:53:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2823,7 +2960,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b9sayid5wm"
+          "Value": "rblnlca1n5"
         },
         {
           "Name": "label",
@@ -2831,13 +2968,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
+          "Value": "sha256-t5CapF4i3tAM3TFbfb1zSAm7CC1d8mN0bdQ6YldTRcQ="
         }
       ]
     },
     {
-      "Route": "css/site.b9sayid5wm.css.gz",
-      "AssetFile": "/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/compressed/jsojxaleb6-b9sayid5wm.gz",
+      "Route": "css/site.rblnlca1n5.css.gz",
+      "AssetFile": "/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/compressed/jsojxaleb6-rblnlca1n5.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2846,7 +2983,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "318"
+          "Value": "2137"
         },
         {
           "Name": "Content-Type",
@@ -2854,11 +2991,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"X7WdvJWe5+793Q+I1aPv6O/n2+XRWJsByQEd8dEKmGs=\""
+          "Value": "\"JoH8Nct/p0vzUh3R12n508h1TQtZoLAsr5kB6JdFYk4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Jul 2025 14:00:00 GMT"
+          "Value": "Wed, 06 Aug 2025 12:53:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2876,7 +3013,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b9sayid5wm"
+          "Value": "rblnlca1n5"
         },
         {
           "Name": "label",
@@ -2884,144 +3021,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-X7WdvJWe5+793Q+I1aPv6O/n2+XRWJsByQEd8dEKmGs="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.css",
-      "AssetFile": "/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/compressed/jsojxaleb6-b9sayid5wm.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.003134796238"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "318"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"X7WdvJWe5+793Q+I1aPv6O/n2+XRWJsByQEd8dEKmGs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 27 Jul 2025 14:00:00 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.css",
-      "AssetFile": "/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/wwwroot/css/site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "667"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 27 Jul 2025 14:00:00 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.css.gz",
-      "AssetFile": "/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/compressed/jsojxaleb6-b9sayid5wm.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "318"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"X7WdvJWe5+793Q+I1aPv6O/n2+XRWJsByQEd8dEKmGs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 27 Jul 2025 14:00:00 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-X7WdvJWe5+793Q+I1aPv6O/n2+XRWJsByQEd8dEKmGs="
+          "Value": "sha256-JoH8Nct/p0vzUh3R12n508h1TQtZoLAsr5kB6JdFYk4="
         }
       ]
     },

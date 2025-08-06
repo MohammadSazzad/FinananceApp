@@ -18,7 +18,6 @@
 /home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
 /home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/scopedcss/bundle/FinanceApp.styles.css
 /home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/scopedcss/projectbundle/FinanceApp.bundle.scp.css
-/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/compressed/jsojxaleb6-b9sayid5wm.gz
 /home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/compressed/9mijmiuqry-61n19gt1b8.gz
 /home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/compressed/p1mo22ifkw-xtxxf3hu2r.gz
 /home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/compressed/gb0gd82e0w-bqjiyaj88i.gz
@@ -237,3 +236,8 @@
 /home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/FinanceApp.csproj.Up2Date
 /home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/bin/Debug/net9.0/Npgsql.dll
 /home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/bin/Debug/net9.0/Microsoft.AspNetCore.OpenApi.dll
+/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/bin/Debug/net9.0/Microsoft.OpenApi.dll
+/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/bin/Debug/net9.0/Scalar.AspNetCore.dll
+/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/FinanceApp.MvcApplicationPartsAssemblyInfo.cs
+/home/sazzad/Documents/Dotnet/FinanceApp/FinanceApp/obj/Debug/net9.0/compressed/jsojxaleb6-rblnlca1n5.gz

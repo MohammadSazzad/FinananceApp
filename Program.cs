@@ -1,15 +1,29 @@
 using Microsoft.EntityFrameworkCore;
 using FinanceApp.Data;
 using FinanceApp.Data.Service;
+using Scalar.AspNetCore;
+using Microsoft.AspNetCore.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddControllers();              
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddOpenApi();
+
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
 builder.Services.AddDbContext<FinanceAppContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<IExpensesService, ExpenseService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 
@@ -19,12 +33,15 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-
 app.UseHttpsRedirection();
 app.UseRouting();
 
-app.UseAuthorization();
+app.UseSession();
 
+app.UseAuthorization();
+app.MapOpenApi();
+app.MapScalarApiReference();
+app.MapControllers();
 app.MapStaticAssets();
 
 app.MapControllerRoute(
@@ -32,5 +49,6 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 
+app.MapDefaultControllerRoute();
 
 app.Run();

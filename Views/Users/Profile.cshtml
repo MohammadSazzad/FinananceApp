@@ -1,0 +1,382 @@
+@model FinanceApp.Models.User
+@{
+    ViewData["Title"] = "My Profile - " + Model.Username;
+    var expenses = ViewBag.UserExpenses as List<FinanceApp.Models.Expense> ?? new List<FinanceApp.Models.Expense>();
+    var expenseCount = (int)ViewBag.ExpenseCount;
+    var totalAmount = (decimal)ViewBag.TotalAmount;
+    var averageAmount = (decimal)ViewBag.AverageAmount;
+}
+
+<div class="profile-header bg-gradient-primary text-white py-5 mb-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="profile-avatar me-4">
+                        <i class="fas fa-user-circle fa-5x text-warning"></i>
+                    </div>
+                    <div>
+                        <h1 class="display-4 fw-bold mb-2">@Model.Username</h1>
+                        <p class="lead mb-2">
+                            <i class="fas fa-envelope me-2"></i>@Model.Email
+                        </p>
+                        <p class="mb-0">
+                            <i class="fas fa-calendar-alt me-2"></i>
+                            Member since @Model.CreatedAt.ToString("MMMM dd, yyyy")
+                        </p>
+                    </div>
+                </div>
+                <div class="profile-badges">
+                    <span class="badge bg-warning text-dark me-2">
+                        <i class="fas fa-star me-1"></i>@Model.Role
+                    </span>
+                    <span class="badge bg-light text-dark me-2">
+                        <i class="fas fa-calendar me-1"></i>@((DateTime.Now - Model.CreatedAt).Days) days active
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="profile-stats">
+                    <h3 class="display-6 fw-bold text-warning">@expenseCount</h3>
+                    <p class="lead">Total Expenses</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <div class="row g-4">
+        <div class="col-md-3">
+            <div class="stat-card card border-0 shadow-sm h-100">
+                <div class="card-body text-center p-4">
+                    <div class="stat-icon mb-3">
+                        <i class="fas fa-receipt fa-3x text-primary"></i>
+                    </div>
+                    <h3 class="fw-bold text-dark">@expenseCount</h3>
+                    <p class="text-muted mb-0">Total Expenses</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card card border-0 shadow-sm h-100">
+                <div class="card-body text-center p-4">
+                    <div class="stat-icon mb-3">
+                        <i class="fas fa-dollar-sign fa-3x text-success"></i>
+                    </div>
+                    <h3 class="fw-bold text-dark">@totalAmount.ToString("C")</h3>
+                    <p class="text-muted mb-0">Total Amount</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card card border-0 shadow-sm h-100">
+                <div class="card-body text-center p-4">
+                    <div class="stat-icon mb-3">
+                        <i class="fas fa-chart-line fa-3x text-info"></i>
+                    </div>
+                    <h3 class="fw-bold text-dark">@averageAmount.ToString("C")</h3>
+                    <p class="text-muted mb-0">Average Amount</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card card border-0 shadow-sm h-100">
+                <div class="card-body text-center p-4">
+                    <div class="stat-icon mb-3">
+                        <i class="fas fa-calendar-week fa-3x text-warning"></i>
+                    </div>
+                    <h3 class="fw-bold text-dark">
+                        @if (expenses.Any())
+                        {
+                            @((DateTime.Now - expenses.OrderByDescending(e => e.Date).First().Date).Days)
+                        }
+                        else
+                        {
+                            <span>0</span>
+                        }
+                    </h3>
+                    <p class="text-muted mb-0">Days Since Last</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white py-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="fw-bold text-dark mb-0">
+                            <i class="fas fa-history me-2 text-primary"></i>Recent Expenses
+                        </h3>
+                        <a asp-controller="Expenses" asp-action="Index" class="btn btn-primary">
+                            <i class="fas fa-eye me-1"></i>View All
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    @if (expenses.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="bg-light">
+                                    <tr>
+                                        <th class="border-0 py-3 ps-4">Description</th>
+                                        <th class="border-0 py-3">Category</th>
+                                        <th class="border-0 py-3">Amount</th>
+                                        <th class="border-0 py-3">Date</th>
+                                        <th class="border-0 py-3 pe-4">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var expense in expenses.OrderByDescending(e => e.Date).Take(10))
+                                    {
+                                        <tr class="expense-row">
+                                            <td class="ps-4 py-3">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="expense-icon me-3">
+                                                        <i class="fas fa-circle fa-sm text-primary"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-0 fw-semibold">@expense.Description</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="py-3">
+                                                <span class="badge bg-light text-dark">
+                                                    <i class="fas fa-tag me-1"></i>@expense.Category
+                                                </span>
+                                            </td>
+                                            <td class="py-3">
+                                                <span class="fw-bold text-success">@expense.Amount.ToString("C")</span>
+                                            </td>
+                                            <td class="py-3 text-muted">
+                                                @expense.Date.ToString("MMM dd, yyyy")
+                                            </td>
+                                            <td class="py-3 pe-4">
+                                                <span class="badge bg-success">
+                                                    <i class="fas fa-check me-1"></i>Recorded
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <div class="empty-state">
+                                <i class="fas fa-receipt fa-4x text-muted mb-3"></i>
+                                <h4 class="text-muted mb-3">No expenses yet</h4>
+                                <p class="text-muted mb-4">Start tracking your expenses to see them here.</p>
+                                <a asp-controller="Expenses" asp-action="Create" class="btn btn-primary">
+                                    <i class="fas fa-plus me-1"></i>Add Your First Expense
+                                </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (expenses.Any())
+{
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-white py-3">
+                        <h3 class="fw-bold text-dark mb-0">
+                            <i class="fas fa-chart-pie me-2 text-primary"></i>Spending by Category
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            @{
+                                var categoryGroups = expenses.GroupBy(e => e.Category)
+                                    .Select(g => new {
+                                        Category = g.Key,
+                                        Count = g.Count(),
+                                        Total = g.Sum(e => e.Amount),
+                                        Percentage = totalAmount > 0 ? (g.Sum(e => e.Amount) / totalAmount * 100) : 0
+                                    })
+                                    .OrderByDescending(x => x.Total)
+                                    .ToList();
+                                
+                                var categoryIcons = new Dictionary<string, string>
+                                {
+                                    { "Food", "fas fa-utensils text-danger" },
+                                    { "Transportation", "fas fa-car text-primary" },
+                                    { "Utilities", "fas fa-bolt text-warning" },
+                                    { "Entertainment", "fas fa-film text-info" },
+                                    { "Healthcare", "fas fa-heartbeat text-danger" },
+                                    { "Shopping", "fas fa-shopping-bag text-success" },
+                                    { "Other", "fas fa-ellipsis-h text-secondary" }
+                                };
+                            }
+                            
+                            @foreach (var category in categoryGroups)
+                            {
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="category-card p-3 border rounded">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i class="@(categoryIcons.ContainsKey(category.Category) ? categoryIcons[category.Category] : "fas fa-tag text-secondary") me-2 fa-lg"></i>
+                                            <h6 class="fw-bold mb-0">@category.Category</h6>
+                                        </div>
+                                        <div class="mb-2">
+                                            <div class="progress" style="height: 8px;">
+                                                <div class="progress-bar bg-primary" role="progressbar" style="width: @(category.Percentage)%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <small class="text-muted">@category.Count expense(s)</small>
+                                            <small class="fw-bold">@category.Total.ToString("C")</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="container mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body text-center p-5">
+                    <h4 class="fw-bold text-dark mb-3">Manage Your Finances</h4>
+                    <p class="text-muted mb-4">Take control of your financial future with our powerful tools.</p>
+                    <div class="d-flex gap-3 justify-content-center flex-wrap">
+                        <a asp-controller="Expenses" asp-action="Create" class="btn btn-primary btn-lg">
+                            <i class="fas fa-plus me-2"></i>Add Expense
+                        </a>
+                        <a asp-controller="Expenses" asp-action="Index" class="btn btn-outline-primary btn-lg">
+                            <i class="fas fa-list me-2"></i>View All Expenses
+                        </a>
+                        <button class="btn btn-outline-secondary btn-lg" onclick="alert('Export feature coming soon!')">
+                            <i class="fas fa-download me-2"></i>Export Data
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Styles -->
+<style>
+    .profile-header {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        border-radius: 0 0 50px 50px;
+        margin-bottom: 2rem;
+    }
+    
+    .profile-avatar {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .profile-badges .badge {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    
+    .stat-card {
+        transition: all 0.3s ease;
+        border-radius: 15px;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+    }
+    
+    .stat-icon {
+        transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover .stat-icon {
+        transform: scale(1.1);
+    }
+    
+    .expense-row {
+        transition: all 0.3s ease;
+    }
+    
+    .expense-row:hover {
+        background-color: rgba(79, 172, 254, 0.05);
+        transform: translateX(5px);
+    }
+    
+    .category-card {
+        transition: all 0.3s ease;
+        background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,249,250,0.9) 100%);
+    }
+    
+    .category-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .empty-state i {
+        opacity: 0.5;
+    }
+    
+    .btn {
+        border-radius: 12px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    
+    .card {
+        border-radius: 20px;
+        overflow: hidden;
+    }
+    
+    .table {
+        font-size: 0.95rem;
+    }
+    
+    .progress {
+        border-radius: 10px;
+    }
+    
+    .progress-bar {
+        border-radius: 10px;
+    }
+</style>
+
+<style media="screen and (max-width: 768px)">
+    .profile-header {
+        text-align: center;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .d-flex.gap-3 {
+        flex-direction: column;
+        gap: 1rem !important;
+    }
+    
+    .btn-lg {
+        width: 100%;
+    }
+</style>

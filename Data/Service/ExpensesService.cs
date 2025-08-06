@@ -12,6 +12,7 @@ namespace FinanceApp.Data.Service
         {
             _context = context;
         }
+        
         public async Task Add(Expense expense)
         {
             if (expense.Date == default || expense.Date == DateTime.MinValue)
@@ -28,15 +29,28 @@ namespace FinanceApp.Data.Service
             _context.Expenses.Add(expense);
             await _context.SaveChangesAsync();
         }
+        
         public async Task<IEnumerable<Expense>> GetAll()
         {
-            var expenses = await _context.Expenses.OrderByDescending(e => e.Date).ToListAsync();
+            var expenses = await _context.Expenses
+                .Include(e => e.User) 
+                .OrderByDescending(e => e.Date)
+                .ToListAsync();
             return expenses;
         }
 
-        public IQueryable GetChartData()
+        public async Task<IEnumerable<Expense>> GetByUserId(int userId)
+        {
+            return await _context.Expenses
+                .Where(e => e.UserId == userId)
+                .OrderByDescending(e => e.Date)
+                .ToListAsync();
+        }
+
+        public IQueryable GetChartData(int userId)
         {
             return _context.Expenses
+                .Where(e => e.UserId == userId)
                 .GroupBy(e => e.Category)
                 .Select(g => new
                 {

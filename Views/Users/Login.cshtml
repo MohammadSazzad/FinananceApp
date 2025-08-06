@@ -1,0 +1,241 @@
+@model FinanceApp.Models.DTO.UserLoginDTO
+
+<div class="hero-section bg-gradient-primary text-white py-5 mb-5">
+    <div class="container">
+        <div class="row align-items-center min-vh-75">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="text-center text-lg-start">
+                    <h1 class="display-4 fw-bold mb-4">Welcome Back to <span class="text-warning">Finance App</span></h1>
+                    <p class="lead mb-4">Log in to access your financial dashboard and continue managing your expenses with precision and ease!</p>
+                    <div class="hero-features">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-chart-pie text-warning me-3 fs-5"></i>
+                            <span>Access your expense dashboard</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-history text-warning me-3 fs-5"></i>
+                            <span>View transaction history</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-chart-line text-warning me-3 fs-5"></i>
+                            <span>Monitor spending patterns</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-white text-center py-4">
+                        <div class="d-flex justify-content-center mb-3">
+                            <div class="text-primary mr-2">
+                                <i class="fas fa-sign-in-alt fa-2x"></i>
+                            </div>
+                            <h3 class="text-dark fw-bold mb-1 ml-1 pl-1">Log In to Your Account</h3>
+                        </div>
+                        <p class="text-muted mb-0">Continue your financial journey</p>
+                    </div>
+                    <div class="card-body p-4">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        
+                        @if (TempData["SuccessMessage"] != null)
+                        {
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                @TempData["SuccessMessage"]
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        }
+                        
+                        <form asp-action="Login" method="post" class="login-form">
+                            @Html.AntiForgeryToken()
+                            
+                            <div class="mb-4">
+                                <label asp-for="Username" class="form-label fw-semibold">
+                                    <i class="fas fa-user text-primary me-2"></i>Username
+                                </label>
+                                <input asp-for="Username" class="form-control form-control-lg" placeholder="Enter your username" />
+                                <span asp-validation-for="Username" class="text-danger small"></span>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label asp-for="Password" class="form-label fw-semibold">
+                                    <i class="fas fa-lock text-primary me-2"></i>Password
+                                </label>
+                                <div class="input-group">
+                                    <input asp-for="Password" class="form-control form-control-lg" type="password" placeholder="Enter your password" id="passwordInput" />
+                                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                        <i class="fas fa-eye" id="toggleIcon"></i>
+                                    </button>
+                                </div>
+                                <span asp-validation-for="Password" class="text-danger small"></span>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="form-check">
+                                    <input asp-for="RememberMe" class="form-check-input" type="checkbox" />
+                                    <label asp-for="RememberMe" class="form-check-label fw-semibold">
+                                        Remember me for 30 days
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="d-grid mb-4">
+                                <button type="submit" class="btn btn-primary btn-lg py-3 fw-semibold">
+                                    <i class="fas fa-sign-in-alt me-2"></i>Login
+                                </button>
+                            </div>
+                            
+                            <div class="text-center">
+                                <p class="mb-2 text-muted">
+                                    <a href="#" class="text-primary text-decoration-none fw-semibold">
+                                        Forgot your password?
+                                    </a>
+                                </p>
+                                <p class="mb-0 text-muted">
+                                    Don't have an account? 
+                                    <a asp-action="Create" class="text-primary text-decoration-none fw-semibold">
+                                        Create one here
+                                    </a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Styles -->
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, #f172d6 0%, #00f2fe 100%);
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+    }
+    
+    .min-vh-75 {
+        min-height: 75vh;
+    }
+    
+    .card {
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 25px 50px rgba(0,0,0,0.15) !important;
+    }
+    
+    .form-control {
+        border-radius: 12px;
+        border: 2px solid #e9ecef;
+        transition: all 0.3s ease;
+    }
+    
+    .form-control:focus {
+        border-color: #4facfe;
+        box-shadow: 0 0 0 0.2rem rgba(79, 172, 254, 0.25);
+        transform: translateY(-2px);
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        border: none;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4);
+    }
+    
+    .btn-outline-secondary {
+        border-radius: 0 12px 12px 0;
+        border: 2px solid #e9ecef;
+        border-left: none;
+    }
+    
+    .input-group .form-control {
+        border-radius: 12px 0 0 12px;
+    }
+    
+    .login-form {
+        position: relative;
+    }
+    
+    .form-label {
+        color: #2d3748;
+        margin-bottom: 8px;
+    }
+    
+    .alert-danger {
+        border-radius: 12px;
+        border: none;
+        background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
+        color: white;
+    }
+    
+    .alert-success {
+        border-radius: 12px;
+        border: none;
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        color: white;
+    }
+    
+    .form-check-input:checked {
+        background-color: #4facfe;
+        border-color: #4facfe;
+    }
+    
+    .form-check-input:focus {
+        border-color: #4facfe;
+        box-shadow: 0 0 0 0.2rem rgba(79, 172, 254, 0.25);
+    }
+</style>
+
+<style media="screen and (max-width: 991.98px)">
+    .hero-section {
+        min-height: auto;
+        padding: 3rem 0;
+    }
+    
+    .display-4 {
+        font-size: 2.5rem;
+    }
+</style>
+
+<style media="screen and (max-width: 576px)">
+    .card-body {
+        padding: 1.5rem !important;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+</style>
+
+<script>
+    document.getElementById('togglePassword').addEventListener('click', function() {
+        const passwordInput = document.getElementById('passwordInput');
+        const toggleIcon = document.getElementById('toggleIcon');
+        
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            toggleIcon.classList.remove('fa-eye');
+            toggleIcon.classList.add('fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            toggleIcon.classList.remove('fa-eye-slash');
+            toggleIcon.classList.add('fa-eye');
+        }
+    });
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

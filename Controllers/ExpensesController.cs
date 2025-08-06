@@ -6,20 +6,35 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FinanceApp.Controllers
 {
-    public class ExpensesController : Controller
+    public class ExpensesController : BaseController
     {
         private readonly IExpensesService _expensesService;
         public ExpensesController(IExpensesService expensesService)
         {
             _expensesService = expensesService;
         }
-
+        
         public async Task<IActionResult> Index()
         {
-            var expenses = await _expensesService.GetAll();
+
+            if (!IsUserLoggedIn())
+            {
+                TempData["ErrorMessage"] = "Please log in to view your expenses.";
+                return RedirectToAction("Login", "Users");
+            }
+
+            var userId = GetCurrentUserId();
+            if (!userId.HasValue)
+            {
+                TempData["ErrorMessage"] = "Unable to identify current user. Please log in again.";
+                return RedirectToAction("Login", "Users");
+            }
+
+            var expenses = await _expensesService.GetByUserId(userId.Value);
+            ViewBag.UserId = userId.Value; 
+            
             return View(expenses);
         }
-
         public IActionResult Create()
         {
             return View();
@@ -29,10 +44,25 @@ namespace FinanceApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Expense expense)
         {
+            if (!IsUserLoggedIn())
+            {
+                TempData["ErrorMessage"] = "Please log in to add expenses.";
+                return RedirectToAction("Login", "Users");
+            }
+
+            var userId = GetCurrentUserId();
+            if (!userId.HasValue)
+            {
+                TempData["ErrorMessage"] = "Unable to identify current user. Please log in again.";
+                return RedirectToAction("Login", "Users");
+            }
+
             if (ModelState.IsValid)
             {
                 try
                 {
+                    expense.UserId = userId.Value;
+
                     if (expense.Date == default || expense.Date == DateTime.MinValue)
                     {
                         expense.Date = DateTime.UtcNow;
@@ -45,6 +75,7 @@ namespace FinanceApp.Controllers
                     }
 
                     await _expensesService.Add(expense);
+                    TempData["SuccessMessage"] = "Expense added successfully!";
                     return RedirectToAction("Index");
                 }
                 catch (Exception ex)
@@ -61,8 +92,19 @@ namespace FinanceApp.Controllers
 
         public IActionResult GetChart()
         {
-            var data = _expensesService.GetChartData();
-            return Json(data);
+            if (!IsUserLoggedIn())
+            {
+                return Unauthorized("Please log in to view chart data.");
+            }
+
+            var userId = GetCurrentUserId();
+            if (!userId.HasValue)
+            {
+                return BadRequest("Unable to identify current user.");
+            }
+
+            var chartData = _expensesService.GetChartData(userId.Value);
+            return Json(chartData);
         }
 
     }

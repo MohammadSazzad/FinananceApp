@@ -1,0 +1,22 @@
+@model IEnumerable<FinanceApp.Models.User>
+
+<div class="container">
+    @if (Model != null && Model.Any())
+    {
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Thank You for registering, @Model.First().Username!</h4>
+            <p>Your registration was successful.</p>
+            <p>We are excited to have you on board!</p>
+            <hr>
+            <p class="mb-0">Now, login to <a href="@Url.Action("Login", "Users")" class="alert-link">your account</a>.</p>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info" role="alert">
+            <h4 class="alert-heading">Welcome!</h4>
+            <p>No users registered yet.</p>
+            <p class="mb-0"><a href="@Url.Action("Create", "Users")" class="alert-link">Register here</a> to get started.</p>
+        </div>
+    }
+</div>
